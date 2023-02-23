@@ -166,5 +166,35 @@
 
 // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
 // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+
+// function swap(arr, index1, index2) {
+//     [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+//     return arr;
+// }
+//
+// let arr = [11, 22, 33, 44];
+// document.write(swap(arr, 0, 1));
+//
+// document.write(`<hr>`)
+
 // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
+
+
+// function exchange(sumUAH, currencyValues, exchangeCurrency) {
+//     let exchangeRate = 0
+//     for (let i = 0; i < currencyValues.length; i++) {
+//         if (currencyValues[i].currency === exchangeCurrency) {
+//             exchangeRate = currencyValues[i].value
+//             break
+//         }
+//     }
+//     let sumExchange = sumUAH / exchangeRate;
+//     return Math.round(sumExchange * 100) / 100
+// }
+//
+// let currencyValues = [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}];
+//
+// document.write('10000 тисяч гривень у відношенні до долларів- ', exchange(10000, currencyValues, 'USD'))
+// document.write('<br>')
+// document.write('10000 тисяч гривень у відношенні до євро- ', exchange(10000, currencyValues, 'EUR'));
