@@ -1,20 +1,32 @@
 // Створити форму з трьома полями для name,surname,age та кнопкою. При натисканні на кнопку зчитати данні з полів, та вивести об'єкт в документ. Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом
 
-let target = document.getElementById('target');
-let f1 = document.getElementById('f1');
-let i1 = document.getElementById('i1');
-let i2 = document.getElementById('i2');
-let i3 = document.getElementById('i3');
-let button = document.getElementsByTagName('button');
+let f1 = document.forms.f1
 
-i1.oninput = function () {
-    target.innerText = this.value
+let mainDiv = document.createElement('div');
+mainDiv.classList.add('mainDiv')
+
+f1.onsubmit = function (ev) {
+    ev.preventDefault()
+    let NameSurnameAge = {
+        Name: f1.name.value,
+        Surname: f1.surname.value,
+        Age: f1.age.value,
+        toJSON() {
+            return this.Name + ' - '.concat(this.Surname) + ' - '.concat(this.Age)
+        },
+    };
+    let br = document.createElement('br');
+    let divMain = document.createElement('div');
+    divMain.classList.add('divInfo')
+    divMain.innerText = JSON.parse(JSON.stringify(NameSurnameAge))
+    mainDiv.append(f1, br, divMain)
+    document.body.appendChild(mainDiv)
 }
-
-
 
 // ==========================
 // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
+
+
 // ==========================
 // Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще, в масив sessions зберігається інформація про дату та час відвідування сторінки. Є ще сторінка sessions.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію
 // =========================
