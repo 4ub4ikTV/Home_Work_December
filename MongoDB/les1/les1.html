@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>les1</title>
+</head>
+<body>
+
+<!--db.users.find()-->
+
+<!-- 1) Знайти всіх юзерів в кого вік менше за 20-->
+
+<!--db.users.find({age: {$lt: 20}})-->
+
+<!-- 2) Знайти всіх юзерів в котрих хоча б один з батьків Tamara або Petro-->
+
+<!--db.users.find({parents: {$in: ['Tamara', 'Petro']}})-->
+
+<!-- 3) Знайти всіх юзерів які вивчають js-->
+
+<!--db.users.find({studying: 'js'})-->
+
+<!-- 4) Знайти всіх юзерів котрі вивчають тільки один предмет и додати їм java-->
+
+<!--db.users.updateMany(-->
+<!--{studying: {$size: 1}},-->
+<!--{$push: {studying: "java"}}-->
+<!--)-->
+
+
+<!-- 5) Знайти всіх юзерів номера будинків яких знаходяться в межах 1-20-->
+
+<!--db.users.find({"address.house": {$in: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]}})-->
+
+<!-- 6) Знайти всіх юзерів в яких назва вулиці містить пробіл-->
+
+<!--db.users.find({"address.street": / /})-->
+<!-- -->
+<!--7) Видалити всіх юзерів в котрих немає поля studying-->
+
+<!--db.users.deleteMany({studying: {$size: 0}})-->
+
+<!-- 8) Знайти всіх юзерів в котрих в ім'я когось с батьків закінчується на 'na'-->
+
+<!--db.users.find({parents: /na$/})-->
+
+<!-- 9) Всім юзерам котрі не вивчають python додати його-->
+
+<!--db.users.updateMany({studying: {$nin: ['python']}},-->
+<!--{$push: {studying: 'python'}}-->
+<!--)-->
+
+<!-- 10) Посортувати юзерів по рейтингу та по номеру квартири (що то що то, від більшого меншого)-->
+
+<!--db.users.find().sort({rating: -1, "address.house": -1})-->
+
+
+</body>
+</html>
