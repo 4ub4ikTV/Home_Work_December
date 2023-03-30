@@ -33,7 +33,16 @@
 
 <!-- 5) Знайти всіх юзерів номера будинків яких знаходяться в межах 1-20-->
 
-<!--db.users.find({"address.house": {$in: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]}})-->
+<!--
+db.getCollection('users').find(
+    {
+        $and:[
+            {'address.house':{$gte:1}},
+            {'address.house':{$lte:20}}
+        ]
+    }
+)
+-->
 
 <!-- 6) Знайти всіх юзерів в яких назва вулиці містить пробіл-->
 
@@ -49,13 +58,13 @@
 
 <!-- 9) Всім юзерам котрі не вивчають python додати його-->
 
-<!--db.users.updateMany({studying: {$nin: ['python']}},-->
+<!--db.users.updateMany({studying: {$ne: ['python']}},-->
 <!--{$push: {studying: 'python'}}-->
 <!--)-->
 
 <!-- 10) Посортувати юзерів по рейтингу та по номеру квартири (що то що то, від більшого меншого)-->
 
-<!--db.users.find().sort({rating: -1, "address.house": -1})-->
+<!--db.users.find().sort({rating: -1, "address.flat": -1})-->
 
 
 </body>
