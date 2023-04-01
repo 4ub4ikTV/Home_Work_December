@@ -149,18 +149,9 @@
 <!--// ********** Не працюючих батьків влаштувати офіціантами (підказка: гуглимо "arrayFilters")-->
 
 <!--db.students.updateMany(-->
-<!--{-->
-<!--$and: [-->
-<!--{"parents.profession": null},-->
-<!--{$or: [{"parents": {$size: 1}}, {"parents": {$size: 2}}]}-->
-<!--]-->
-<!--},-->
-<!--{-->
-<!--$set: {"parents.$[elem].profession": "server"}-->
-<!--},-->
-<!--{-->
-<!--arrayFilters: [{"elem.profession": null}]-->
-<!--}-->
+<!--{parents: {$exists: 1}, "parents.profession": null},-->
+<!--{$set: {"parents.$[elem].profession": "server"}},-->
+<!--{arrayFilters: [{"elem.profession": null}]}-->
 <!--)-->
 
 
