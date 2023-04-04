@@ -140,7 +140,13 @@ const mission: Mission = {
 // incAge(user, 2)
 
 
-const user: { name: string, age: number, gender: string } = {
+interface UserI {
+    name: string
+    age: number
+    gender: string
+}
+
+const user: UserI = {
     name: "Max",
     age: 18,
     gender: 'male'
@@ -154,7 +160,7 @@ function showSum(a: number, b: number): void {
     console.log(a + b);
 }
 
-function incAge(someUser: typeof user, inc: number): typeof user {
+function incAge(someUser: UserI, inc: number): UserI {
     someUser.age += inc
     return someUser
 }
